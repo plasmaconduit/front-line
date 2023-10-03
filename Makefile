@@ -10,6 +10,14 @@ build-dev: build-image
 	@IMAGE=$(IMAGE) ./docker/run.sh pre-commit install-hooks
 	@IMAGE=$(IMAGE) ./docker/run.sh cargo build
 
+.PHONY: build-ci
+build-ci: build-dev
+	@docker save "$(IMAGE)" > ./build-cache/docker-image.tar
+
+.PHONY: load-ci
+load-ci:
+	@docker load < ./build-cache/docker-image.tar
+
 .PHONY: test
 test: build-dev
 	@IMAGE=$(IMAGE) ./docker/run.sh cargo test
