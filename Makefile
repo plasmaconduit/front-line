@@ -7,11 +7,12 @@ build-image:
 .PHONY: build-dev
 build-dev: build-image
 	cp ./docker/pre-commit-hook.sh .git/hooks/pre-commit
-	IMAGE=$(IMAGE) ./docker/run.sh pre-commit install-hooks
-	IMAGE=$(IMAGE) ./docker/run.sh cargo build
+	@IMAGE=$(IMAGE) ./docker/run.sh git config --global --add safe.directory /opt/front-line
+	@IMAGE=$(IMAGE) ./docker/run.sh pre-commit install-hooks
 
 .PHONY: build-ci
 build-ci: build-dev
+	@IMAGE=$(IMAGE) ./docker/run.sh cargo build
 	@docker save "$(IMAGE)" > ./build-cache/docker-image.tar
 
 .PHONY: load-ci
