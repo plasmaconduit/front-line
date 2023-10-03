@@ -27,6 +27,9 @@ RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs/ | sh -s -- -y
 ENV PATH="/root/.cargo/bin:${PATH}"
 RUN rustup install 1.72.1
 
+# Mark the git mount as safe
+RUN git config --global --add safe.directory /opt/front-line
+
 # Copy the docker utility scripts and set the entrypoint to the proxy script
 COPY docker /opt/docker
 ENTRYPOINT ["/opt/docker/entrypoint.sh"]

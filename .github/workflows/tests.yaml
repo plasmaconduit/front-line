@@ -9,8 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
       - name: Cache Deps
         id: cache-deps
         uses: actions/cache@v3
@@ -41,7 +39,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 0
+          fetch-depth: 2
       - name: Restore cache
         id: cache-deps
         uses: actions/cache/restore@v3
