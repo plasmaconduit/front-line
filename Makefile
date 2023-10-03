@@ -13,11 +13,11 @@ build-dev: build-image
 build-ci: build-dev
 	IMAGE=$(IMAGE) ./docker/run.sh cargo build
 	sudo chmod -R ugo+rw ./build-cache
-	docker save "$(IMAGE)" > ./build-cache/docker-image.tar
+	docker save "$(IMAGE)" | gzip > ./build-cache/docker-image.tar.gz
 
 .PHONY: load-ci
 load-ci:
-	@docker load < ./build-cache/docker-image.tar
+	@gunzip -c ./build-cache/docker-image.tar.gz | docker load
 
 .PHONY: test
 test: build-dev
