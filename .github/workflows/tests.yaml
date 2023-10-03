@@ -14,9 +14,9 @@ jobs:
         uses: actions/cache@v3
         with:
           path: build-cache
-          key: ${{ runner.os }}-${{ hashFiles('**/Cargo.toml', '.pre-commit-config.yaml', 'dev.docker') }}
+          key: ${{ runner.os }}-${{ hashFiles('**/Cargo.toml', '**/.pre-commit-config.yaml', '**/dev.docker') }}
       - name: Pull and build deps
-        if: steps.cache-primes.outputs.cache-hit != 'true'
+        if: steps.cache-deps.outputs.cache-hit != 'true'
         run: make build-ci
   test:
     runs-on: ubuntu-latest
@@ -24,11 +24,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Restore cache
-        id: cache-deps
         uses: actions/cache/restore@v3
         with:
           path: build-cache
-          key: ${{ runner.os }}-${{ hashFiles('**/Cargo.toml', '.pre-commit-config.yaml', 'dev.docker') }}
+          key: ${{ runner.os }}-${{ hashFiles('**/Cargo.toml', '**/.pre-commit-config.yaml', '**/dev.docker') }}
       - name: Load cached docker image
         run: make load-ci
       - name: Run tests
@@ -41,11 +40,10 @@ jobs:
         with:
           fetch-depth: 2
       - name: Restore cache
-        id: cache-deps
         uses: actions/cache/restore@v3
         with:
           path: build-cache
-          key: ${{ runner.os }}-${{ hashFiles('**/Cargo.toml', '.pre-commit-config.yaml', 'dev.docker') }}
+          key: ${{ runner.os }}-${{ hashFiles('**/Cargo.toml', '**/.pre-commit-config.yaml', '**/dev.docker') }}
       - name: Load cached docker image
         run: make load-ci
       - name: Run pre-commit
