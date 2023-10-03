@@ -8,5 +8,5 @@ repository = "https://github.com/plasmaconduit/front-line/"
 readme = "../README.md"
 
 [dependencies]
-front-line-router = { version = "0.1.0", path = "../front-line-router" }
-front-line-derive = { version = "0.1.0", path = "../front-line-derive" }
+front-line-router = { version = "0.1.0" }
+front-line-derive = { version = "0.1.0"}
