@@ -16,10 +16,8 @@ jobs:
           path: build-cache
           key: ${{ runner.os }}-${{ hashFiles('**/Cargo.toml', '**/.pre-commit-config.yaml', '**/dev.docker') }}
       - name: Pull and build deps
-        run: mkdir build-cache
-  #      - name: Pull and build deps
-  #        if: steps.cache-deps.outputs.cache-hit != 'true'
-  #        run: make build-ci
+        if: steps.cache-deps.outputs.cache-hit != 'true'
+        run: make build-ci
   test:
     runs-on: ubuntu-latest
     needs: build
