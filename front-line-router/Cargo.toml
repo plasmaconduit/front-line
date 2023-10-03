@@ -12,5 +12,5 @@ memchr = { workspace = true }
 thiserror = { workspace = true }
 
 [dev-dependencies]
-front-line-derive = { path = "../front-line-derive" }
+front-line-derive = { version = "0.1.0", path = "../front-line-derive" }
 rstest = { workspace = true }
