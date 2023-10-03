@@ -5,7 +5,7 @@ edition = "2021"
 license = "MIT"
 description = "Traits and utilities for the front-line http router"
 repository = "https://github.com/plasmaconduit/front-line/"
-readme = "README.md"
+readme = "../README.md"
 
 [dependencies]
 memchr = { workspace = true }

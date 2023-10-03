@@ -5,7 +5,7 @@ edition = "2021"
 license = "MIT"
 description = "A declarative, zero-copy HTTP router"
 repository = "https://github.com/plasmaconduit/front-line/"
-readme = "README.md"
+readme = "../README.md"
 
 [dependencies]
 front-line-router = { path = "../front-line-router" }
