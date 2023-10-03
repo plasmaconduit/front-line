@@ -15,8 +15,7 @@
 //! ## Basic Usage:
 //!
 //! ```rust
-//! use front_line::FrontLine;
-//! use front_line_router::{HttpVersion, RouterResult, Router};
+//! use front_line::{FrontLine, HttpVersion, RouterResult, Router};
 //!
 //! #[derive(FrontLine)]
 //! enum MarketingRoutes {
