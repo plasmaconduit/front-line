@@ -17,5 +17,5 @@ regex = { workspace = true }
 syn = { workspace = true }
 
 [dev-dependencies]
-front-line-router = { version = "0.1.0" }
+front-line-router = { path = "../front-line-router" }
 rstest = { workspace = true }
