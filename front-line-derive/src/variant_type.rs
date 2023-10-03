@@ -92,7 +92,7 @@ fn parse_leaf_variants(data: &DataEnum) -> Vec<VariantType> {
                         panic!("path argument for {} must be a simple &str", variant.ident);
                     });
                     let path_literal = literal.to_string();
-                    if !path_literal.starts_with("\"") {
+                    if !path_literal.starts_with('\"') {
                         panic!("path argument for {} must be a simple &str", variant.ident);
                     }
                     if !path_literal.starts_with("\"/") {

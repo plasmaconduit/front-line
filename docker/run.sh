@@ -7,8 +7,10 @@ fi
 
 if [ "${GITHUB_ACTIONS}" == "true" ]; then
     TTY_FLAG="-t"
-else
+elif tty -s; then
     TTY_FLAG="-ti"
+else
+    TTY_FLAG="-i"
 fi
 
 DIR="$( cd "$( dirname "$0" )" && pwd )"
