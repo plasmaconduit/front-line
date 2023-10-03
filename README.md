@@ -1,6 +1,12 @@
 # Front Line
 
-![Crates.io](https://img.shields.io/crates/v/front-line)
+[![crates.io][crates-badge]][crates-link]
+[![docs.rs][docs-badge]][docs-link]
+
+[crates-badge]: https://img.shields.io/crates/v/front-line
+[crates-link]: https://crates.io/crates/front-line
+[docs-badge]: https://img.shields.io/docsrs/front-line
+[docs-link]: https://docs.rs/front-line/latest/front_line/
 
 **A declarative, zero-copy HTTP router for Rust.**
 
@@ -20,8 +26,7 @@ both complex and straightforward use cases.
 ## Basic Usage:
 
 ```rust
-use front_line::FrontLine;
-use front_line_router::{HttpVersion, RouterResult, Router};
+use front_line_router::{FrontLine, HttpVersion, RouterResult, Router};
 
 #[derive(FrontLine)]
 enum MarketingRoutes {
