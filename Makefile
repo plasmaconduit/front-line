@@ -6,9 +6,9 @@ build-image:
 
 .PHONY: build-dev
 build-dev: build-image
-	@cp ./docker/pre-commit-hook.sh .git/hooks/pre-commit
-	@IMAGE=$(IMAGE) ./docker/run.sh pre-commit install-hooks
-	@IMAGE=$(IMAGE) ./docker/run.sh cargo build
+	cp ./docker/pre-commit-hook.sh .git/hooks/pre-commit
+	IMAGE=$(IMAGE) ./docker/run.sh pre-commit install-hooks
+	IMAGE=$(IMAGE) ./docker/run.sh cargo build
 
 .PHONY: build-ci
 build-ci: build-dev
