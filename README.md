@@ -1,4 +1,6 @@
-# front-line
+# Front Line
+
+![Crates.io](https://img.shields.io/crates/v/front-line)
 
 **A declarative, zero-copy HTTP router for Rust.**
 
