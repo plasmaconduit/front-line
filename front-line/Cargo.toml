@@ -2,6 +2,10 @@
 name = "front-line"
 version = "0.1.0"
 edition = "2021"
+license = "MIT"
+description = "A declarative, zero-copy HTTP router"
+repository = "https://github.com/plasmaconduit/front-line/"
+readme = "README.md"
 
 [dependencies]
 front-line-router = { path = "../front-line-router" }
