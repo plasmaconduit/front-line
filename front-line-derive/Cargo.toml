@@ -1,0 +1,17 @@
+[package]
+name = "front-line-derive"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+proc-macro2 = { workspace = true }
+quote = { workspace = true }
+regex = { workspace = true }
+syn = { workspace = true }
+
+[dev-dependencies]
+front-line-router = { path = "../front-line-router" }
+rstest = { workspace = true }

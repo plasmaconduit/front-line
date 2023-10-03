@@ -1,0 +1,8 @@
+[package]
+name = "front-line"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+front-line-router = { path = "../front-line-router" }
+front-line-derive = { path = "../front-line-derive" }

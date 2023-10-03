@@ -1,0 +1,12 @@
+[package]
+name = "front-line-router"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+memchr = { workspace = true }
+thiserror = { workspace = true }
+
+[dev-dependencies]
+front-line-derive = { path = "../front-line-derive" }
+rstest = { workspace = true }
