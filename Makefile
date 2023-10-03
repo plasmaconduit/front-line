@@ -15,11 +15,11 @@ test: build-dev
 
 .PHONY: pre-commit
 pre-commit: build-dev
-	@IMAGE=$(IMAGE) ./docker/run.sh pre-commit
+	@IMAGE=$(IMAGE) ./docker/run.sh pre-commit run --color=always
 
 .PHONY: pre-commit-all
 pre-commit-all: build-dev
-	@IMAGE=$(IMAGE) ./docker/run.sh pre-commit run --all-files
+	@IMAGE=$(IMAGE) ./docker/run.sh pre-commit run --all-files --color=always
 
 .PHONY: shell
 shell: build-dev
