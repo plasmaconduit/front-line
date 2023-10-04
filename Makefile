@@ -30,7 +30,7 @@ shell: build-dev
 	@IMAGE=$(IMAGE) ./docker/run.sh bash
 
 .PHONY: build-image-ci
-build-image-ci: build-dev
+build-image-ci: build-image
 	docker save "$(IMAGE)" | gzip > ./build-cache/docker-image.tar.gz
 
 .PHONY: build-tests

@@ -9,6 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Create the build cache directory
+        run: |
+          mkdir build-cache
+          sudo chmod -R ugo+rwx ./build-cache
       - name: Cache docker
         id: cache-docker
         uses: actions/cache@v3
