@@ -77,7 +77,7 @@ impl Path {
                     let end = format_ident!("end{segment_offset}");
                     let capture = format_ident!("capture{base_offset}_{variable}");
                     quote! {
-                        let #end = front_line_router::memchr::memchr(b'/', #last_slice.as_bytes()).unwrap_or(#last_slice.len());
+                        let #end = front_line::memchr::memchr(b'/', #last_slice.as_bytes()).unwrap_or(#last_slice.len());
                         let #capture = &#last_slice[..#end];
                         let #next_slice = &#last_slice[#end..];
                     }

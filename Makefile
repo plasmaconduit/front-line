@@ -27,7 +27,7 @@ shell: build-dev
 
 .PHONY: build-ci
 build-ci: build-dev
-	IMAGE=$(IMAGE) ./docker/run.sh cargo build
+	IMAGE=$(IMAGE) ./docker/run.sh cargo build --tests
 	sudo chmod -R ugo+rwx ./build-cache
 	docker save "$(IMAGE)" | gzip > ./build-cache/docker-image.tar.gz
 

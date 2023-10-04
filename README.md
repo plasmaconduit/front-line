@@ -36,7 +36,7 @@ both complex and straightforward use cases.
 ## Basic Usage
 
 ```rust
-use front_line_router::{FrontLine, HttpVersion, RouterResult, Router};
+use front_line::{FrontLine, HttpVersion, RouterResult, Router};
 
 #[derive(FrontLine)]
 enum MarketingRoutes {

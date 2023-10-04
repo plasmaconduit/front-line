@@ -42,7 +42,7 @@ impl<'a> CaptureFields<'a> {
             let parsed = format_ident!("parsed{base_offset}_{ident}");
             let converted = format_ident!("converted{base_offset}_{ident}");
             let conversion = quote! {
-                let #parsed: Option<#ty> = front_line_router::FromRoute::parse_path_variable(&#capture);
+                let #parsed: Option<#ty> = front_line::FromRoute::parse_path_variable(&#capture);
                 if #parsed.is_none() {
                     break #path_block;
                 }
