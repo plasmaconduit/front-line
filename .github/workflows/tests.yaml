@@ -1,0 +1,46 @@
+name: Tests
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Cache Deps
+        id: cache-deps
+        uses: actions/cache@v3
+        with:
+          path: build-cache
+          key: ${{ runner.os }}-${{ hashFiles('Cargo.toml', 'front-line*/Cargo.toml', '.pre-commit-config.yaml', 'dev.docker') }}
+      - name: Pull and build deps
+        if: steps.cache-deps.outputs.cache-hit != 'true'
+        run: make build-ci
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v3
+      - name: Restore cache
+        uses: actions/cache/restore@v3
+        with:
+          path: build-cache
+          key: ${{ runner.os }}-${{ hashFiles('Cargo.toml', 'front-line*/Cargo.toml', '.pre-commit-config.yaml', 'dev.docker') }}
+      - name: Run tests
+        run: make test-ci
+  pre-commit:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+      - name: Restore cache
+        uses: actions/cache/restore@v3
+        with:
+          path: build-cache
+          key: ${{ runner.os }}-${{ hashFiles('Cargo.toml', 'front-line*/Cargo.toml', '.pre-commit-config.yaml', 'dev.docker') }}
+      - name: Run pre-commit
+        run: make pre-commit-ci

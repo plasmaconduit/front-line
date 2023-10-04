@@ -6,8 +6,8 @@ build-image:
 
 .PHONY: build-dev
 build-dev: build-image
-	@cp ./docker/pre-commit-hook.sh .git/hooks/pre-commit
-	@IMAGE=$(IMAGE) ./docker/run.sh cargo build
+	cp ./docker/pre-commit-hook.sh .git/hooks/pre-commit
+	@IMAGE=$(IMAGE) ./docker/run.sh pre-commit install-hooks
 
 .PHONY: test
 test: build-dev
@@ -24,3 +24,21 @@ pre-commit-all: build-dev
 .PHONY: shell
 shell: build-dev
 	@IMAGE=$(IMAGE) ./docker/run.sh bash
+
+.PHONY: build-ci
+build-ci: build-dev
+	IMAGE=$(IMAGE) ./docker/run.sh cargo build
+	sudo chmod -R ugo+rwx ./build-cache
+	docker save "$(IMAGE)" | gzip > ./build-cache/docker-image.tar.gz
+
+.PHONY: load-ci
+load-ci:
+	@gunzip -c ./build-cache/docker-image.tar.gz | docker load
+
+.PHONY: test-ci
+test-ci: load-ci
+	@IMAGE=$(IMAGE) ./docker/run.sh cargo test
+
+.PHONY: pre-commit-ci
+pre-commit-ci: load-ci
+	@IMAGE=$(IMAGE) ./docker/run.sh pre-commit run --all-files --color=always
