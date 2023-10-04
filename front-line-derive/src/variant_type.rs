@@ -47,7 +47,7 @@ impl<'a> VariantType<'a> {
                         .collect();
                     let method_ident = method.to_ident();
                     let by_method_matcher = quote! {
-                        if #parsed_method == front_line_router::Method::#method_ident {
+                        if #parsed_method == front_line::Method::#method_ident {
                             #(
                                 #path_blocks
                             )*

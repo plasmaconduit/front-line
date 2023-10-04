@@ -1,11 +1,11 @@
 [package]
 name = "front-line-router"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 license = "MIT"
 description = "Traits and utilities for the front-line http router"
 repository = "https://github.com/plasmaconduit/front-line/"
-readme = "../README.md"
+readme = "README.md"
 
 [dependencies]
 memchr = { workspace = true }

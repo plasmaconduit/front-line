@@ -1,5 +1,4 @@
-use front_line_derive::FrontLine;
-use front_line_router::{Error, HttpVersion, Router, RouterResult};
+use front_line::{Error, FrontLine, HttpVersion, Router, RouterResult};
 use rstest::rstest;
 
 #[derive(PartialEq, Debug, FrontLine)]

@@ -1,11 +1,11 @@
 [package]
 name = "front-line-derive"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 license = "MIT"
 description = "Derive proc-macros for the front-line http router"
 repository = "https://github.com/plasmaconduit/front-line/"
-readme = "../README.md"
+readme = "README.md"
 
 [lib]
 proc-macro = true
@@ -15,7 +15,3 @@ proc-macro2 = { workspace = true }
 quote = { workspace = true }
 regex = { workspace = true }
 syn = { workspace = true }
-
-[dev-dependencies]
-front-line-router = { path = "../front-line-router" }
-rstest = { workspace = true }

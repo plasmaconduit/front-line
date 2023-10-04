@@ -1,3 +1,6 @@
+//! Do not import or use this crate directly, import and use `front-line` instead.
+//! See: [front-line](https://docs.rs/front-line/latest/front_line/)
+
 mod capture_fields;
 mod method_tag;
 mod path;
@@ -56,9 +59,9 @@ pub fn front_line_derive(input: TokenStream) -> TokenStream {
                 })
                 .collect();
             let router = quote! {
-                impl<#extended_params> front_line_router::Router<'de> for #name<#params> {
+                impl<#extended_params> front_line::Router<'de> for #name<#params> {
                       fn handle_parsed(
-                        #method: front_line_router::Method,
+                        #method: front_line::Method,
                         #remaining_path: &'de str
                     ) -> Option<Self> {
                         #prefix_matcher
