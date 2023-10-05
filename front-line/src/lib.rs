@@ -2,14 +2,13 @@
 //!
 //! The `front-line` crate provides utilities to route HTTP requests based on their method and path,
 //! offering both manual routing capabilities and a declarative macro-driven approach for simpler use cases.
-//! It emphasizes zero-copy operations to maximize efficiency and performance.
 //!
 //! ## Features:
 //!
-//! - **Declarative:** Define routes as enums with proc-macro attributes.
-//! - **Zero-copy capture:** Easily capture dynamic segments from paths (e.g., `/users/{id}`)
+//! - **Declarative**: Define routes as enums with proc-macro attributes.
+//! - **Zero-copy capture**: Easily capture dynamic segments from paths (e.g., `/users/{id}`)
 //!   with opt-in zero-copy capture to avoid unnecessary copying and allocations.
-//! - **Dispatch free:** Only handles path based route resolution and allows the user to choose
+//! - **Dispatch free**: Only handles path based route resolution and allows the user to choose
 //!   how to perform dispatch.
 //!
 //! ## Basic Usage:

@@ -8,4 +8,4 @@
 
 # DO NOT USE DIRECTLY
 
-import and use `front-line` instead.
+import and use [front-line](https://crates.io/crates/front-line) instead.
