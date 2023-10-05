@@ -8,7 +8,7 @@
 [docs-badge]: https://img.shields.io/docsrs/front-line
 [docs-link]: https://docs.rs/front-line/latest/front_line/
 
-**A declarative, zero-copy HTTP router for Rust.**
+**A declarative, zero-copy, proc-macro based HTTP router for Rust.**
 
 The `front-line` crate offers utilities to route HTTP requests based on their 
 method and path. With declarative macro-driven approach, it's suitable for 

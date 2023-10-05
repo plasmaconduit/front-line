@@ -1,4 +1,4 @@
-IMAGE=plasmaconduit
+IMAGE=front-line
 
 .PHONY: build-image
 build-image:
